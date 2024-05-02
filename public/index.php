@@ -1,19 +1,24 @@
 <?php
 
-// Carga de archivos esenciales
-// require_once '../app/Controllers/UsuarioController.php';
+// Constantes
+define('BASE_URL', '/elfaro/public');
 
-// Enrutamiento simple
-$page = $_GET['page'] ?? 'home';  // Default a 'home' si no se especifica una página
+// Determinar qué página cargar
+$page = $_GET['page'] ?? 'home';  // Carga 'home' por defecto si no se especifica una página
 
+ob_start();  // Inicia el buffering de salida
 switch ($page) {
     case 'home':
-        require '../app/Views/pages/home.php';
+        include '../app/Views/pages/home.php';
         break;
-    // Aquí puedes agregar más casos para otras páginas
+    case 'contacto':
+        include '../app/Views/pages/contacto.php';
+        break;
     default:
-        require '../app/Views/pages/404.php';  // Considera tener una vista para el error 404
+        include '../app/Views/pages/error404.php';
+        break;
 }
+$content = ob_get_clean();  // Guarda el contenido del buffer y limpia el buffer
 
-// Cargar layout principal con el contenido de la página
+// Incluir el layout general solo una vez y después de preparar $content
 require '../app/Views/layout.php';

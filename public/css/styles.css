@@ -1,0 +1,79 @@
+/* Custom Fonts */
+
+/* B612 Regular */
+@font-face {
+ font-family: 'B612';
+ src: url('../fonts/B612/B612-Regular.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+
+/* B612 Italic */
+@font-face {
+ font-family: 'B612';
+ src: url('../fonts/B612/B612-Italic.ttf') format('truetype');
+ font-weight: normal;
+ font-style: italic;
+}
+
+/* B612 Bold */
+@font-face {
+ font-family: 'B612';
+ src: url('../fonts/B612/B612-Bold.ttf') format('truetype');
+ font-weight: bold;
+ font-style: normal;
+}
+
+/* B612 Bold Italic */
+@font-face {
+ font-family: 'B612';
+ src: url('../fonts/B612/B612-BoldItalic.ttf') format('truetype');
+ font-weight: bold;
+ font-style: italic;
+}
+
+/* Blinker Bold (para el logo y algunos titulares) */
+@font-face {
+  font-family: 'Blinker';
+  src: url('../fonts/Blinker/Blinker-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Fonts */
+body {
+  font-family: 'B612', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'B612', serif;
+}
+
+em, i {
+  font-family: 'B612';
+  font-style: italic;
+}
+
+strong, b {
+  font-family: 'B612';
+  font-weight: bold;
+}
+
+strong em, b i {
+  font-family: 'B612';
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Header */
+img.logo  {
+ width: 100px;
+ background: #fff;
+ border-radius: 50px;
+}
+
+span.logo  {
+  font-family: 'Blinker', sans-serif;
+  font-weight: bold; 
+}

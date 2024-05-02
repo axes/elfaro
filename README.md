@@ -20,3 +20,12 @@ public
 - Artículo - Noticia
 - Artículo - Publicidad
 - Artículo - Video
+
+## Assets y extras
+
+- Uso de Google Fonts
+-- Blinker: Para logo y H1 <https://fonts.google.com/specimen/Blinker>
+-- B612: Para títulos y textos en general <https://fonts.google.com/specimen/B612>
+
+
+
