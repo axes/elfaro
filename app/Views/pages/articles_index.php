@@ -5,6 +5,8 @@
             <?php foreach ($articles as $article) : ?>
                 <div class="article-summary">
                     <h2><a href="index.php?page=article&id=<?= htmlspecialchars($article['id']) ?>"><?= htmlspecialchars($article['title']) ?></a></h2>
+                    <!-- Mostrar la categoría -->
+                    <p><strong>Categoría:</strong> <?= htmlspecialchars($article['category']) ?></p>
                     <p><?= htmlspecialchars($article['excerpt']) ?></p>
                 </div>
             <?php endforeach; ?>

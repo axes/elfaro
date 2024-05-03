@@ -17,21 +17,21 @@ class ArticleController
     }
     
 
-    // public function show($id) {
-    //     $article = $this->articleModel->getArticleById($id);
-    //     if ($article) {
-    //         include '../app/Views/pages/article_show.php';
-    //     } else {
-    //         include '../app/Views/pages/error404.php';
-    //     }
-    // }
+    public function show($id) {
+        $article = $this->articleModel->getArticleById($id);
+        if ($article) {
+            include '../app/Views/pages/article_show.php';
+        } else {
+            include '../app/Views/pages/error404.php';
+        }
+    }
 
-    // public function edit($id) {
-    //     $article = $this->articleModel->getArticleById($id);
-    //     if ($article) {
-    //         include '../app/Views/pages/article_edit.php';
-    //     } else {
-    //         include '../app/Views/pages/error404.php';
-    //     }
-    // }
+    public function edit($id) {
+        $article = $this->articleModel->getArticleById($id);
+        if ($article) {
+            include '../app/Views/pages/article_edit.php';
+        } else {
+            include '../app/Views/pages/error404.php';
+        }
+    }
 }

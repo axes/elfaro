@@ -20,7 +20,11 @@ class RouterController
                 break;
             case 'article':
                 $id = $_GET['id'] ?? null;
-                $this->articleController->show($id);
+                if ($id) {
+                    $this->articleController->show($id);
+                } else {
+                    include '../app/Views/pages/error404.php';
+                }
                 break;
             case 'edit-article':
                 $id = $_GET['id'] ?? null;
