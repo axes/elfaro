@@ -1,24 +1,18 @@
 <?php
+define('ROOT_PATH', dirname(__DIR__));
+require_once ROOT_PATH . '/app/Controllers/RouterController.php';
 
 // Constantes
 define('BASE_URL', '/elfaro/public');
 
-// Determinar qué página cargar
-$page = $_GET['page'] ?? 'home';  // Carga 'home' por defecto si no se especifica una página
+// Crear una instancia del controlador de rutas
+$router = new RouterController();
 
-ob_start();  // Inicia el buffering de salida
-switch ($page) {
-    case 'home':
-        include '../app/Views/pages/home.php';
-        break;
-    case 'contacto':
-        include '../app/Views/pages/contacto.php';
-        break;
-    default:
-        include '../app/Views/pages/error404.php';
-        break;
-}
-$content = ob_get_clean();  // Guarda el contenido del buffer y limpia el buffer
+// Obtener la página solicitada de la URL, default a 'home'
+$page = $_GET['page'] ?? 'home';
 
-// Incluir el layout general solo una vez y después de preparar $content
+// Obtener el contenido de la página a través del controlador
+$content = $router->route($page);
+
+// Incluir el layout general, que usa el contenido obtenido
 require '../app/Views/layout.php';
