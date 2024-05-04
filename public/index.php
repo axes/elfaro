@@ -1,4 +1,12 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 define('ROOT_PATH', dirname(__DIR__));
 require_once ROOT_PATH . '/app/Controllers/RouterController.php';
 
@@ -7,6 +15,7 @@ define('BASE_URL', '/elfaro/public');
 
 // Crear una instancia del controlador de rutas
 $router = new RouterController();
+
 
 // Obtener la página solicitada de la URL, default a 'home'
 $page = $_GET['page'] ?? 'home';

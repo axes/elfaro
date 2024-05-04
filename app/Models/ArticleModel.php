@@ -21,6 +21,8 @@ class ArticleModel
 
     ];
 
+
+
     public function getAllArticles()
     {
         return $this->articles;

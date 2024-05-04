@@ -1,6 +1,6 @@
 <div class="container-fluid bg-dark text-white">
     <div class="container">
-        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my-5 border-top">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 mt-5">
             <div class="col mb-3 d-flex flex-column align-items-center">
                 <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
                     <img class="logo" src="assets/elfaro_vectorized_trans.png" alt="Logo de El Faro" />

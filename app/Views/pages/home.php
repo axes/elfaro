@@ -1,7 +1,68 @@
-<div class="p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Hola Mundo</h1>
-        <p class="col-md-8 fs-4">Bienvenido a El Faro, tu sitio de noticias de confianza.</p>
+<!-- En home.php -->
+<div class="container mt-4">
+
+    <div class="row mb-4">
+        <h2>Noticias Generales</h2>
+
+        <?php if (isset($generalNews) && is_array($generalNews)) : ?>
+            <?php foreach ($generalNews as $news) : ?>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<?= htmlspecialchars($news['image']) ?>" class="card-img-top" alt="<?= htmlspecialchars($news['title']) ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
+                            <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
+                            <a href="index.php?page=article&id=<?= $news['id'] ?>" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <p>No hay noticias generales disponibles en este momento.</p>
+        <?php endif; ?>
     </div>
+
+    <!-- Sección de noticias de deportes -->
+    <div class="row mb-4">
+        <h2>Noticias de Deportes</h2>
+        <?php if (isset($sportsNews) && is_array($sportsNews)): ?>
+            <?php foreach ($sportsNews as $news): ?>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<?= htmlspecialchars($news['image']) ?>" class="card-img-top" alt="<?= htmlspecialchars($news['title']) ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
+                            <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
+                            <a href="index.php?page=article&id=<?= $news['id'] ?>" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay noticias de deportes disponibles en este momento.</p>
+        <?php endif; ?>
+    </div>
+
+        <!-- Sección de noticias de negocios -->
+        <div class="row mb-4">
+        <h2>Noticias de Negocios</h2>
+        <?php if (isset($businessNews) && is_array($businessNews)): ?>
+            <?php foreach ($businessNews as $news): ?>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<?= htmlspecialchars($news['image']) ?>" class="card-img-top" alt="<?= htmlspecialchars($news['title']) ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
+                            <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
+                            <a href="index.php?page=article&id=<?= $news['id'] ?>" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay noticias de deportes disponibles en este momento.</p>
+        <?php endif; ?>
+    </div>
+
 </div>
-<?php
+
