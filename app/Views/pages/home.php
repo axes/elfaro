@@ -12,7 +12,8 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
-                            <a href="index.php?page=article&id=<?= $news['id'] ?>" class="btn btn-primary">Leer más</a>
+                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views']) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes']) ?></small></p>
+                            <a href="index.php?page=article&id=<?= htmlspecialchars($news['id_article']) ?>" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +34,8 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
-                            <a href="index.php?page=article&id=<?= $news['id'] ?>" class="btn btn-primary">Leer más</a>
+                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views']) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes']) ?></small></p>
+                            <a href="index.php?page=article&id=<?= htmlspecialchars($news['id_article']) ?>" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>
                 </div>
@@ -43,8 +45,8 @@
         <?php endif; ?>
     </div>
 
-        <!-- Sección de noticias de negocios -->
-        <div class="row mb-4">
+    <!-- Sección de noticias de negocios -->
+    <div class="row mb-4">
         <h2>Noticias de Negocios</h2>
         <?php if (isset($businessNews) && is_array($businessNews)): ?>
             <?php foreach ($businessNews as $news): ?>
@@ -54,15 +56,15 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
-                            <a href="index.php?page=article&id=<?= $news['id'] ?>" class="btn btn-primary">Leer más</a>
+                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views']) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes']) ?></small></p>
+                            <a href="index.php?page=article&id=<?= htmlspecialchars($news['id_article']) ?>" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>No hay noticias de deportes disponibles en este momento.</p>
+            <p>No hay noticias de negocios disponibles en este momento.</p>
         <?php endif; ?>
     </div>
 
 </div>
-

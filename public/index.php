@@ -20,8 +20,12 @@ $router = new RouterController();
 // Obtener la página solicitada de la URL, default a 'home'
 $page = $_GET['page'] ?? 'home';
 
+ob_start();  // Inicia el buffering de salida
+
 // Obtener el contenido de la página a través del controlador
-$content = $router->route($page);
+$router->route($page);
+
+$content = ob_get_clean();  // Guarda el contenido del buffer y limpia el buffer
 
 // Incluir el layout general, que usa el contenido obtenido
 require '../app/Views/layout.php';

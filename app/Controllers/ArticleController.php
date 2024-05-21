@@ -4,41 +4,20 @@ require_once ROOT_PATH . '/app/Models/ArticleModel.php';
 
 class ArticleController
 {
-  
-
     private $articleModel;
 
-    public function __construct()
+    public function __construct($pdo)
     {
-        $this->articleModel = new ArticleModel();
+        $this->articleModel = new ArticleModel($pdo);
     }
-
-    // public function index() {
-    //     $articles = $this->articleModel->getAllArticles();
-    //     include '../app/Views/pages/articles_index.php';
-    // }
 
     public function index()
     {
-        $allArticles = $this->articleModel->getAllArticles();
-    
-        // Filtrar y limitar a tres noticias generales
-        $generalNews = array_slice(array_filter($allArticles, function ($article) {
-            return $article['category'] === 'Noticias Generales';
-        }), 0, 3);
-    
-        // Filtrar y limitar a tres noticias de deportes
-        $sportsNews = array_slice(array_filter($allArticles, function ($article) {
-            return $article['category'] === 'Deportes';
-        }), 0, 3);
+        $generalNews = $this->articleModel->getRecentArticlesByCategory('Noticias Generales', 3);
+        $sportsNews = $this->articleModel->getRecentArticlesByCategory('Deportes', 3);
+        $businessNews = $this->articleModel->getRecentArticlesByCategory('Negocios', 3);
 
-         // Filtrar y limitar a tres noticias de negocios
-         $businessNews = array_slice(array_filter($allArticles, function ($article) {
-            return $article['category'] === 'Negocios';
-        }), 0, 3);
-    
-    
-        // Pasar los datos a la vista
+        // Incluir la vista y pasar las variables
         include '../app/Views/pages/home.php';
     }
 
@@ -46,6 +25,7 @@ class ArticleController
     {
         $article = $this->articleModel->getArticleById($id);
         if ($article) {
+            $article['meta'] = $this->articleModel->getArticleMeta($article['id_article']);
             include '../app/Views/pages/article_show.php';
         } else {
             include '../app/Views/pages/error404.php';

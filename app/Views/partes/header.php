@@ -7,8 +7,8 @@
                 <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Trabaja con nosotros</a></li>
             </ul>
             <ul class="nav">
-                <?php if (isset($_SESSION['username'])) : ?>
-                    <li class="nav-item"><span class="nav-link px-2">Sucriptor: <?= htmlspecialchars($_SESSION['username']) ?></span></li>
+                <?php if (isset($_SESSION['username']) && isset($_SESSION['role'])) : ?>
+                    <li class="nav-item"><span class="nav-link px-2">Logueado como: <?= htmlspecialchars($_SESSION['username']) ?> (<?= htmlspecialchars($_SESSION['role']) ?>)</span></li>
                     <li class="nav-item"><a href="<?php echo BASE_URL; ?>/index.php?page=logout" class="nav-link link-body-emphasis px-2">Logout</a></li>
                 <?php else : ?>
                     <li class="nav-item"><a href="<?php echo BASE_URL; ?>/index.php?page=login" class="nav-link link-body-emphasis px-2">Ingresar</a></li>
@@ -17,6 +17,7 @@
             </ul>
         </div>
     </nav>
+
 
     <header class="d-flex flex-wrap justify-content-center align-items-center py-3 mb-4 border-bottom">
         <a href="<?php echo BASE_URL; ?>/index.php?page=home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">

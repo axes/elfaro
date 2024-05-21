@@ -5,7 +5,9 @@
             <h1><?= htmlspecialchars($article['title']) ?></h1>
             <p class="text-muted">
                 <span>Publicado el: <?= date('d/m/Y', strtotime($article['date'])) ?></span> |
-                <span>Categoría: <?= htmlspecialchars($article['category']) ?></span>
+                <span>Categoría: <?= htmlspecialchars($article['category']) ?></span> |
+                <span>Vistas: <?= htmlspecialchars($article['meta']['views']) ?></span> |
+                <span>Me gusta: <?= htmlspecialchars($article['meta']['likes']) ?></span>
             </p>
             <img src="<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>" class="img-fluid">
             <p class="font-italic"><?= htmlspecialchars($article['excerpt']) ?></p>

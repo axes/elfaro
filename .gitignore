@@ -2,3 +2,5 @@
 _backups/
 docs/
 .htaccess
+# Ignorar archivo de configuración de base de datos
+/app/config/db.php 

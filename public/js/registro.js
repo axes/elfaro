@@ -14,7 +14,7 @@ $(document).ready(function () {
                 console.log("Registro:", response);  // Depuración: registra la respuesta
                 if (response.success) {
                     $('#message').text(response.message);
-                    window.location.href = 'index.php?page=home';
+                    window.location.href = 'index.php?page=login';  // Redirigir a la página de login
                 } else {
                     $('#message').text(response.message || "Error desconocido");
                 }
@@ -50,9 +50,4 @@ $(document).ready(function () {
             }
         });
     });
-
-
-
-
 });
-
