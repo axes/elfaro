@@ -3,18 +3,22 @@
 -- ./mysql -u root -p elfaro < C:/xampp/htdocs/elfaro/app/database/init_db.sql      
 
 
--- Crear la tabla User
-CREATE TABLE User (
+-- Creación de la base de datos
+CREATE DATABASE IF NOT EXISTS elfaro;
+USE elfaro;
+
+-- Tabla de usuarios
+CREATE TABLE IF NOT EXISTS user (
     id_user INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    registerDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    role ENUM('admin', 'editor', 'subscriber') NOT NULL DEFAULT 'subscriber'
+    register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    role ENUM('admin', 'editor', 'subscriber') DEFAULT 'subscriber'
 );
 
--- Crear la tabla Article
-CREATE TABLE Article (
+-- Tabla de artículos
+CREATE TABLE IF NOT EXISTS article (
     id_article INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     image VARCHAR(255) NOT NULL,
@@ -23,14 +27,23 @@ CREATE TABLE Article (
     category VARCHAR(50) NOT NULL,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     author INT,
-    FOREIGN KEY (author) REFERENCES User(id_user)
+    FOREIGN KEY (author) REFERENCES user(id_user) ON DELETE SET NULL
 );
 
--- Crear la tabla ArticleMeta
-CREATE TABLE ArticleMeta (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+-- Tabla de metadatos de artículos
+CREATE TABLE IF NOT EXISTS articlemeta (
+    id_meta INT AUTO_INCREMENT PRIMARY KEY,
     article_id INT,
-    meta_key VARCHAR(50),
+    meta_key VARCHAR(255),
     meta_value TEXT,
-    FOREIGN KEY (article_id) REFERENCES Article(id_article)
+    FOREIGN KEY (article_id) REFERENCES article(id_article) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS `contactos` (
+    `id_contacto` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `message` TEXT NOT NULL,
+    `type` ENUM('sin asunto', 'quejas o reclamos', 'carta al director') DEFAULT 'sin asunto',
+    `date_sent` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

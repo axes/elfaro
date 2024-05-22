@@ -11,6 +11,12 @@ class UserController
         $this->userModel = new UserModel($pdo);
     }
 
+    public function index()
+    {
+        $users = $this->userModel->getAllUsers();
+        include ROOT_PATH . '/app/Views/admin/users_index.php';
+    }
+
     public function showLoginForm()
     {
         include ROOT_PATH . '/app/Views/pages/login.php';
@@ -43,7 +49,7 @@ class UserController
         }
         exit();
     }
-    
+
     public function registerUser()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -64,11 +70,38 @@ class UserController
         exit();
     }
 
+
     public function logoutUser()
     {
         session_start();
         session_destroy();
         header("Location: " . BASE_URL . "/index.php?page=home");
+        exit();
+    }
+
+    // Editar usuario
+    public function edit($id)
+    {
+        $user = $this->userModel->getUserById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $role = $_POST['role'];
+            $password = $_POST['password'] ?? null;
+
+            $this->userModel->updateUser($id, $username, $email, $role, $password);
+            header('Location: ' . BASE_URL . '/index.php?page=admin&action=manageUsers');
+            exit();
+        }
+
+        include ROOT_PATH . '/app/Views/admin/user_edit.php';
+    }
+
+    public function delete($id)
+    {
+        $this->userModel->deleteUser($id);
+        header('Location: ' . BASE_URL . '/index.php?page=admin&action=manageUsers');
         exit();
     }
 }

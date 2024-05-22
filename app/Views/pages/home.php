@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
-                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views']) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes']) ?></small></p>
+                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views'] ?? 0) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes'] ?? 0) ?> </small></p>
                             <a href="index.php?page=article&id=<?= htmlspecialchars($news['id_article']) ?>" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
-                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views']) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes']) ?></small></p>
+                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views'] ?? 0) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes'] ?? 0) ?> </small></p>
                             <a href="index.php?page=article&id=<?= htmlspecialchars($news['id_article']) ?>" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($news['title']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($news['excerpt']) ?></p>
-                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views']) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes']) ?></small></p>
+                            <p class="card-text"><small class="text-muted">Vistas: <?= htmlspecialchars($news['meta']['views'] ?? 0) ?> | Me gusta: <?= htmlspecialchars($news['meta']['likes'] ?? 0) ?> </small></p>
                             <a href="index.php?page=article&id=<?= htmlspecialchars($news['id_article']) ?>" class="btn btn-primary">Leer más</a>
                         </div>
                     </div>

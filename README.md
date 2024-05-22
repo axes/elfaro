@@ -64,6 +64,7 @@ README.md
 -- B612: Para títulos y textos en general <https://fonts.google.com/specimen/B612>
 
 ## Dummy Users
+
 admin/admin123
 editor/editor123
 user1/user123
